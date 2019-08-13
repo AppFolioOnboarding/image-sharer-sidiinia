@@ -14,5 +14,6 @@ class Image < ApplicationRecord
     url = URI.parse(img_url)
     return url if url.host
   rescue URI::Error
+    nil
   end
 end
