@@ -5,7 +5,8 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   setup do
-    @image = Image.create!(title: 'sydney', text: 'http://blog.bongiovi.tw/wp-content/uploads/2015/03/03.jpg')
+    @image = Image.create!(title: 'sydney', text: 'http://blog.bongiovi.tw/wp-content/uploads/2015/03/03.jpg',
+                           tag_list: 'random')
   end
 
   def test_index
@@ -15,6 +16,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h1', 'Listing images'
     assert_equal 'sydney', @image.title
     assert_equal 'http://blog.bongiovi.tw/wp-content/uploads/2015/03/03.jpg', @image.text
+    assert_equal 'random', @image.tag_list.first
   end
 
   def test_new
