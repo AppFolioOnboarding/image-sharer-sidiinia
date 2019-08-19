@@ -1,4 +1,6 @@
 class Image < ApplicationRecord
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :tags
   validates :title, presence: true
   validates :text, presence: true
   validate :validates_url
