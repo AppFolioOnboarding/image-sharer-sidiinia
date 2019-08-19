@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
-
   # test "the truth" do
   #   assert true
   # end
@@ -14,7 +13,6 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :ok
     assert_select 'h1', 'Listing images'
-
   end
 
   def test_new
