@@ -13,6 +13,8 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :ok
     assert_select 'h1', 'Listing images'
+    assert_equal 'sydney', @image.title
+    assert_equal 'http://blog.bongiovi.tw/wp-content/uploads/2015/03/03.jpg', @image.text
   end
 
   def test_new
@@ -26,6 +28,6 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     get image_path(@image.id)
 
     assert_response :ok
-    assert_select '#name', 'sydney'
+    assert_select '#title', 'sydney'
   end
 end
