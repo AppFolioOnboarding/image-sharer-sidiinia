@@ -29,6 +29,7 @@ class ImagesController < ApplicationController
 
     redirect_to images_path
   end
+
   private
 
   def set_image
