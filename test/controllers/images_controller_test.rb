@@ -50,4 +50,9 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to images_path
   end
+
+  def test_set_image
+    get image_path(-1)
+    assert_redirected_to images_path
+  end
 end

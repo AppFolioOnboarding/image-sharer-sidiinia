@@ -33,7 +33,9 @@ class ImagesController < ApplicationController
   private
 
   def set_image
-    @image = Image.find_by(params[:id])
+    @image = Image.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to images_path
   end
 
   def image_params
