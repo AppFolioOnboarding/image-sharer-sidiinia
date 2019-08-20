@@ -42,4 +42,17 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :ok
     assert_select '#title', 'sydney'
   end
+
+  def test_destroy
+    assert_difference('Image.all.count', -1) do
+      delete image_path(@image.id)
+    end
+
+    assert_redirected_to images_path
+  end
+
+  def test_set_image
+    get image_path(-1)
+    assert_redirected_to images_path
+  end
 end
