@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :set_image, only: %i[show destroy]
   def index
     @images = if params[:tag].blank?
                 Image.all
@@ -7,9 +8,7 @@ class ImagesController < ApplicationController
               end
   end
 
-  def show
-    @image = Image.find(params[:id])
-  end
+  def show; end
 
   def new
     @image = Image.new
@@ -26,12 +25,15 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
     @image.destroy
 
     redirect_to images_path
   end
   private
+
+  def set_image
+    @image = Image.find(params[:id])
+  end
 
   def image_params
     params.require(:image).permit(:title, :text, :tag_list)
