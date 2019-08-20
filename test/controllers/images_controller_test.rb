@@ -28,6 +28,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :ok
     assert_select '.image', 1
   end
+
   def test_new
     get new_image_path
 
