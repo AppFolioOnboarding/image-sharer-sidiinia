@@ -1,5 +1,11 @@
 <h1>Listing images</h1>
 
+<h4>Search images by tags</h4>
+<%= form_tag(tags_path, method: :get) do %>
+  <%= text_field_tag :tag, params[:tag] %>
+  <%= submit_tag :'Search' %>
+<% end %>
+
 <%= link_to 'New Image', new_image_path %>
 
 <table>
