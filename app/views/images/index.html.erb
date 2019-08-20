@@ -22,6 +22,7 @@
         <td><%= image_tag(image.text, class: 'image') %></td>
         <td><%= image.tag_list %></td>
         <td><%= link_to 'Show', image_path(image) %></td>
+        <td><%= link_to 'Destroy', image_path(image), method: :delete, data: {confirm: 'Are you sure?'}%></td>
       </tr>
   <% end %>
 </table>
