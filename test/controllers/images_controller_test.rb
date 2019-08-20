@@ -19,6 +19,16 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'random', @image.tag_list.first
   end
 
+  def test_index__filtered_by_tag
+    @image = Image.create!(title: 'sidiinia', text: 'https://i.pinimg.com/originals/82/ef/06/82ef06c683aaa4a2e4782fc9af498416.png',
+                           tag_list: 'cute')
+
+    get images_path(tag: 'cute')
+
+    assert_response :ok
+    assert_select '.image', 1
+  end
+
   def test_new
     get new_image_path
 

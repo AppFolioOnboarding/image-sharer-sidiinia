@@ -1,6 +1,10 @@
 class ImagesController < ApplicationController
   def index
-    @images = Image.all
+    @images = if params[:tag].blank?
+                Image.all
+              else
+                Image.tagged_with(params[:tag])
+              end
   end
 
   def show
